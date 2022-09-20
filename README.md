@@ -535,7 +535,7 @@ First of course the design constraints have not been the same: fullscreen, 3D pr
 So a size of 400 x 152 x 187 (51 600 pixels) vs. 288 x 80 x 82 (15 000 pixels). This size combined with the slow scrolling have led to a 16x24 font size (vs. 16 x 10).
 Moreover, it was mandatory to have both uppercase and lowercase chars: 56 letters instead of 25. 
  
-# General approach
+## General approach
 It is also based on using different sizes fo each char, and displaying them at precomputed X positions. No surprise for me here, I do not see other solutions to be efficient.
 
 The font is also reduced and X-shifted. Moreover the display is also split in the two same steps:
@@ -577,7 +577,7 @@ Since TCB's scroller requires 49 664 cycles, we can interpolate to 170 844 cycle
 
 Using the same precomputation than TCB, I would have only taken 130 900 cycles ! Yeah !
 
-But as explained before, because of the scroller and font size, and to run on a 512 KBytes computer, I had to take the "line" approach, which finally leads to 187 000 cycles (including useless `NOP` to fit into fulscreen switches).
+But as explained before, because of the scroller and font size, and to run on a 512 KBytes computer, I had to take the "line" approach, which finally leads to 187 000 cycles (including useless `NOP` to fit into fullscreen switches).
 
 
 ## Conclusion
@@ -587,5 +587,4 @@ But at the end no doubt that TCB clearly won on the myth & iconic battlefields !
 
 # Contact
 David aka Uko from T.AL (The Arctic Land)
-
 uko.tal@gmail.com or uko at http://www.atari-forum.com

@@ -570,16 +570,6 @@ This allows to save some precious cycles !
 I win again ! :wink:
 
 
-## CPU
-There is a 3.44 ratio between the number of pixels of the two scrollers.
-
-Since TCB's scroller requires 49 664 cycles, we can interpolate to 170 844 cycles for displaying a scroller with the same dimensions than mine.
-
-Using the same precomputation than TCB, I would have only taken 130 900 cycles ! Yeah !
-
-But as explained before, because of the scroller and font size, and to run on a 512 KBytes computer, I had to take the "line" approach, which finally leads to 187 000 cycles (including useless `NOP` to fit into fullscreen switches).
-
-
 ## Conclusion
 We have finally used the same approaches, but I managed to brought additional optimisations to cope with the larger size. 
 But at the end no doubt that TCB clearly won on the myth & iconic battlefields !! Thank you guys for this inspiring demo ! 

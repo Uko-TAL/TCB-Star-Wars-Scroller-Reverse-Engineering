@@ -23,7 +23,7 @@ I also made a tutorial about the way I have implemented it(
 [GitHub](https://github.com/Uko-TAL/TheStarWarsDemo/blob/main/Tuto/StarWarsSWSC.pptx), 
 [YouTube](https://youtu.be/quv_D2c6LGw)), and during a discussion on atari-forum about this tutorial, it was asked if anyone has looked into how TCB did theirs all those years back.
 
-I haven't and didn't want to, in order not to be influenced before coding :wink: . And also I suppose that it is the habit I have taken from back in the days, i.e. to try to reproduce their demos without having access to their source code ! :lol:
+I haven't and didn't want to, in order not to be influenced before coding :wink: . And also I suppose that it is the habit I have taken from back in the days, i.e. to try to reproduce their demos without having access to their source code ! :smile:
 
 But after reading a [blog article of Dbug](https://blog.defence-force.org/index.php?page=articles&ref=ART49) who reverse engineered the 3D Doc Demo (Cuddly demos too !), I have thought the time has come to dig into TCB's code !
 
@@ -47,11 +47,11 @@ For this, the wonderful [hrdb (Hatari Remote Debugger GUI)](http://clarets.org/s
 
 Finally I haved defined both constants (`equ`) and labels to make the source understandable.
 
-I think it could have been simple by using the `ORG` directive, but I did not manage to use it more than once with vasm...
+I think it could have been simpler by using the `ORG` directive, but I did not manage to use it more than once with vasm...
 
 I initially wanted to focus only on the Star Wars scroller part (SWSC) but it was not as straightforward as I thought, and I finally reversed, commented and explained most of the demo. Only the distorted scroller part is not fully reversed, because it doesn't seem to reveal big surprises and I had already spent too much time on this demo.
 
-### The source code is here.
+***The commented source code is [here](https://github.com/Uko-TAL/TCB-Star-Wars-Scroller-Reverse-Engineering/blob/main/TCB_STW2.S).***
 
   
 ## Overview
@@ -224,7 +224,7 @@ The remove of unused letters from the font, and the limited number of symbols hi
 The font is rather small and does not allow a good definition for the "3D projection" effect. But this is hidden by the high speed of the scrolling.
 Here is for example what it looks like when stopped and without rasters.
 
-### Include image.
+![Screenshot](https://github.com/Uko-TAL/TCB-Star-Wars-Scroller-Reverse-Engineering/blob/main/Screenshot.png)
 
 Even the closest lines are not really readable and the more distant ones are.. euh...
 But speed and rasters change everything ! Well done !

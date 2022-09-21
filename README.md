@@ -1,5 +1,5 @@
 # Reverse engineering of "Cuddly Demos – The Star-Wars Scroller by The Carebears"
-This repository contains the reverse engineered source code and explanations of one of the most famous Atari ST demos
+This repository contains the reverse engineered source code and explanations of one of the most famous Atari ST demos.
 
 ## Introduction
 No doubt that if you owned an Atari ST at the end of the eighties you have been really impressed by one of the most famous megademos: The Cuddly Demos by The Carebears (TCB):
@@ -229,7 +229,7 @@ Here is for example what it looks like when stopped and without rasters.
 Even the closest lines are not really readable and the more distant ones are.. euh...
 But speed and rasters change everything ! Well done !
 
-They have taken the approximation that the projection for all columns is the same (not true, but visually acceptable), so this the problem to having different char sizes and to X-preshift them.
+They have taken the approximation that the projection for all columns is the same (not true, but visually acceptable), so this resumes the problem to having different char sizes and to X-preshift them.
 This rescaling and X-shifting is performed during the demo initialisation and requires a final font buffer of 232 KBytes. 
 This pre-processing is done with a per pixel subroutine, and is not really optimised: this explains the delay before the demo really starts.
 
@@ -244,7 +244,7 @@ swsc_rescale_pixel:
         ; The current routine is called for consecutive d4 pixel values, and selected d0 values
         ; this is what allows the rescaling
         lsl.b   #1,d1           ; 2 bytes per line in source data, so multiply per 2
-        move.w  0(a0,d1.l),d2   ; Get the 16 pixels of the char line. Memory done for each pixel... Not very efficient
+        move.w  0(a0,d1.l),d2   ; Get the 16 pixels of the char line. Memory access done for each pixel... Not very efficient
         lsl.b   #1,d1           ; 32 pixels (4 bytes) per line in destination data to handle X-shift , so multiply again per 2
         moveq   #$f,d3          ; 16 pixels
         sub.b   d0,d3           ; Reverse order for pixel index
@@ -329,7 +329,7 @@ clear_SWSC: ; Cleans the previous displayed SWSC per sections
             move.w  d1,16(a0)
             move.w  d1,24(a0)
             move.w  d1,32(a0)
-            move.w  d1,40(a0)   ; 96 pixel for first section
+            move.w  d1,40(a0)   ; 96 pixels for first section
             lea 160(a0),a0
             dbf d0,.loop1
 
@@ -530,6 +530,8 @@ If you are interested in this further step, it may be interesting to first read 
 [GitHub](https://github.com/Uko-TAL/TheStarWarsDemo/blob/main/Tuto/StarWarsSWSC.pptx), 
 [YouTube](https://youtu.be/quv_D2c6LGw)).
 
+Now let's compare the implementations.
+
 ## Design constraints
 First of course the design constraints have not been the same: fullscreen, 3D projection close to the movie, and slow scrolling.
 So a size of 400 x 152 x 187 (51 600 pixels) vs. 288 x 80 x 82 (15 000 pixels). This size combined with the slow scrolling have led to a 16x24 font size (vs. 16 x 10).
@@ -571,7 +573,7 @@ I win again ! :wink:
 
 
 ## Conclusion
-We have finally used the same approaches, but I managed to brought additional optimisations to cope with the larger size. 
+We have finally used the same approach, but I managed to bring additional optimisations to cope with the larger size. 
 But at the end no doubt that TCB clearly won on the myth & iconic battlefields !! Thank you guys for this inspiring demo ! 
 
 
